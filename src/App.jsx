@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import './App.css';
-import Navbar from './components/Navbar/Navbar';
+import Router from './router';
+import { NavigationProvider } from './hooks/useNavigate';
 
 function App() {
   const getPosts = async () => {
@@ -15,9 +15,9 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <Navbar />
-    </div>
+    <NavigationProvider>
+      <Router />
+    </NavigationProvider>
   );
 }
 

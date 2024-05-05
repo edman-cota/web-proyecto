@@ -1,4 +1,31 @@
 .nav {
-  background-color: var(--primary-background-color);
+  background-color: var(--navbar-background);
   height: 54px;
+  display: flex;
+  justify-content: space-between;
+
+  .navOptions {
+    height: 100%;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    padding-right: 40px;
+
+    .button {
+      height: 30px;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: transparent;
+      border-color: transparent;
+      fill: var(--main-font-color);
+      color: var(--main-font-color);
+      padding: 6px;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        background-color: var(--button-close-form-background-hover);
+      }
+    }
+  }
 }

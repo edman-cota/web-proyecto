@@ -10,6 +10,9 @@
 -- BLOGS TABLE
 \i ../database/db-definition/tables/blogs.sql
 
+-- BLOGS TABLE
+\i ../database/db-definition/tables/users.sql
+
 
 -------------------------------------------------------------------------------
 ---------------------------------- PRINT END ----------------------------------

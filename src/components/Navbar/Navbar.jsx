@@ -1,7 +1,14 @@
 import { useState } from 'react';
+import LogoutIcon from '@mui/icons-material/Logout';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
+
 import styles from './Navbar.module.scss';
+import useNavigate from '../../hooks/useNavigate';
 
 const Navbar = () => {
+  const { page, navigate } = useNavigate();
+
   const selectedTheme = localStorage.getItem('selectedTheme');
   const [isDarkMode, setIsDarkMode] = useState(selectedTheme === 'dark');
 
@@ -31,13 +38,20 @@ const Navbar = () => {
     }
   };
 
+  const handleLogout = () => navigate('/login');
+
   return (
     <nav className={styles.nav}>
       Navbar
-      <label>
-        <input type='checkbox' checked={isDarkMode} onChange={() => toggleTheme(!isDarkMode)} />
-        Dark Mode
-      </label>
+      <div className={styles.navOptions}>
+        <button className={styles.button} onClick={() => toggleTheme(!isDarkMode)}>
+          {isDarkMode ? <LightModeIcon fontSize='small' /> : <DarkModeIcon fontSize='small' />}
+        </button>
+
+        <a className={styles.button} href='#/login' onClick={handleLogout}>
+          <LogoutIcon fontSize='small' />
+        </a>
+      </div>
     </nav>
   );
 };

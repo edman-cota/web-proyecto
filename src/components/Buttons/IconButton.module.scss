@@ -1,0 +1,16 @@
+.iconButton {
+  height: 30px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &.ghost {
+    background-color: transparent;
+    border-color: transparent;
+    fill: var(--main-font-color);
+    color: var(--main-font-color);
+
+    &:hover {
+      background-color: var(--button-close-form-background-hover);
+    }
+  }
+}

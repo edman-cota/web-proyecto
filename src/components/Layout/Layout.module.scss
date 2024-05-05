@@ -1,0 +1,13 @@
+.layout {
+  display: flex;
+
+  .main {
+    background-color: var(--main-background);
+    height: 100%;
+
+    .content {
+      width: 100vw;
+      height: calc(100vh - 54px);
+    }
+  }
+}

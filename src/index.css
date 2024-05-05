@@ -1,9 +1,49 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /*  SENTO COLOR PALLET */
+  --sento-colors-whiteAlpha-100: rgba(255, 255, 255, 0.06);
+  --sento-colors-whiteAlpha-200: rgba(255, 255, 255, 0.08);
+  --sento-colors-whiteAlpha-300: rgba(255, 255, 255, 0.16);
+  --sento-colors-whiteAlpha-700: rgba(255, 255, 255, 0.64);
+  --sento-colors-whiteAlpha-800: rgba(255, 255, 255, 0.8);
+  --sento-colors-whiteAlpha-900: rgba(255, 255, 255, 0.92);
 
+  --sento-colors-blackAlpha-500: rgba(0, 0, 0, 0.36);
+  --sento-colors-blackAlpha-800: rgba(0, 0, 0, 0.87);
+  --sento-colors-blackAlpha-900: rgba(0, 0, 0, 0.92);
+
+  --sento-colors-gray-700: #2d3748;
+  --sento-colors-gray-800: #1a202c;
+  --sento-colors-gray-800: #1a202c;
+  --sento-colors-gray-900: #171923;
+
+  --main-font-color: var(--sento-colors-blackAlpha-800);
+  --main-background: #f0f2f5;
+  --navbar-background: #ffffff;
   --primary-background-color: #eceff8;
+  --button-close-form-background-hover: #e7e7e7;
+
+  --input-background: #ffffff;
+  --input-border-color: #c4c4c4;
+  --input-active-border-color: #0073ea;
 }
 
 [data-theme='dark'] {
+  --main-font-color: var(--sento-colors-whiteAlpha-900);
+  --main-background: #1a202c;
+  --navbar-background: var(--sento-colors-gray-700);
   --primary-background-color: #1b1b1f;
+  --button-close-form-background-hover: var(--sento-colors-whiteAlpha-300);
+
+  --input-background: var(--sento-colors-whiteAlpha-100);
+  --input-border-color: #c4c4c4;
+  --input-active-border-color: #0073ea;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }

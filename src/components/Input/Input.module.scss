@@ -1,0 +1,11 @@
+.input {
+  height: 34px;
+  width: 100%;
+  border-radius: 4px;
+  padding: 0px 8px;
+  background-color: var(--textarea-background);
+
+  &:focus-visible {
+    outline-color: var(--input-active-border-color);
+  }
+}
