@@ -1,31 +1,32 @@
 import { useEffect, useState } from 'react';
-import useNavigate from '../../hooks/useNavigate';
-import useToken from '../../hooks/useToken';
+
+import Post from '../../components/Post/Post';
+import styles from './Home.module.scss';
+import { getPosts } from '../../utils/http';
 
 const Home = () => {
-  const { page } = useNavigate();
-  const { token } = useToken();
-
   const [posts, setPosts] = useState([]);
 
-  const getPosts = async () => {
-    let listado = await fetch('http://localhost:19830/posts');
-    let listado_json = await listado.json();
-    setPosts(listado_json);
+  const fetchData = async () => {
+    const posts = await getPosts();
+
+    setPosts(posts);
   };
 
   useEffect(() => {
-    getPosts();
+    fetchData();
   }, []);
 
-  console.log('posts: ', posts);
-
   return (
-    <div>
+    <div className={styles.home}>
       <p>Donde los desarrolladores</p>
       <p>crecen juntos</p>
 
-      <p></p>
+      <div className={styles.posts}>
+        {posts.map((post) => (
+          <Post key={post.id} post={post} />
+        ))}
+      </div>
     </div>
   );
 };

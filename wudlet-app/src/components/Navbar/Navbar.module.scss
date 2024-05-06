@@ -3,6 +3,13 @@
   height: 54px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  .logo {
+    height: 34px;
+    cursor: pointer;
+  }
 
   .navOptions {
     height: 100%;

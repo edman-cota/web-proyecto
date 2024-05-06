@@ -5,8 +5,6 @@ const NavigationContext = createContext({ page: '/', navigate: () => {} });
 const NavigationProvider = ({ children }) => {
   const path = window.location.hash.substring(1);
 
-  console.log('path: ', path);
-
   const [page, setPage] = useState(path || '/');
 
   useEffect(() => {
@@ -16,7 +14,6 @@ const NavigationProvider = ({ children }) => {
   }, [path]);
 
   const navigate = (url) => {
-    console.log('Pagina actual', url);
     setPage(url);
   };
 

@@ -15,4 +15,12 @@
     outline-color: #0073ea;
     color: white;
   }
+
+  &.error {
+    @extend .button;
+    background-color: red;
+    color: white;
+    outline-color: red;
+    border-color: red;
+  }
 }

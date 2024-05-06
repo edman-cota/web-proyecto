@@ -19,6 +19,7 @@
   --main-font-color: var(--sento-colors-blackAlpha-800);
   --main-background: #f0f2f5;
   --navbar-background: #ffffff;
+  --card-background: #ffffff;
   --primary-background-color: #eceff8;
   --button-close-form-background-hover: #e7e7e7;
 
@@ -31,6 +32,7 @@
   --main-font-color: var(--sento-colors-whiteAlpha-900);
   --main-background: #1a202c;
   --navbar-background: var(--sento-colors-gray-700);
+  --card-background: var(--sento-colors-gray-700);
   --primary-background-color: #1b1b1f;
   --button-close-form-background-hover: var(--sento-colors-whiteAlpha-300);
 

@@ -1,0 +1,10 @@
+.item {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  .options {
+    display: flex;
+    gap: 10px;
+  }
+}

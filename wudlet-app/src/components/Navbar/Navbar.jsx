@@ -7,7 +7,7 @@ import styles from './Navbar.module.scss';
 import useNavigate from '../../hooks/useNavigate';
 
 const Navbar = () => {
-  const { page, navigate } = useNavigate();
+  const { navigate } = useNavigate();
 
   const selectedTheme = localStorage.getItem('selectedTheme');
   const [isDarkMode, setIsDarkMode] = useState(selectedTheme === 'dark');
@@ -40,10 +40,21 @@ const Navbar = () => {
 
   const handleLogout = () => navigate('/login');
 
+  const navigateTo = (url) => {
+    window.history.pushState({}, null, url);
+    navigate(url);
+  };
+
   return (
     <nav className={styles.nav}>
-      Navbar
+      <div onClick={() => navigateTo('/')}>
+        <img className={styles.logo} src='https://www.uvg.edu.gt/wp-content/uploads/logo-uvg-1.png' />
+      </div>
       <div className={styles.navOptions}>
+        <button className={styles.button} onClick={() => navigateTo('/admin')}>
+          admin
+        </button>
+
         <button className={styles.button} onClick={() => toggleTheme(!isDarkMode)}>
           {isDarkMode ? <LightModeIcon fontSize='small' /> : <DarkModeIcon fontSize='small' />}
         </button>
