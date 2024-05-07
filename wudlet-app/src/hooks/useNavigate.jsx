@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { createContext, useContext, useState, useEffect } from 'react';
 
 const NavigationContext = createContext({ page: '/', navigate: () => {} });
@@ -22,6 +23,10 @@ const NavigationProvider = ({ children }) => {
 
 const useNavigate = () => {
   return useContext(NavigationContext);
+};
+
+NavigationProvider.propTypes = {
+  children: PropTypes.element,
 };
 
 export default useNavigate;

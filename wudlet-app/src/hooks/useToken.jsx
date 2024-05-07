@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect, createContext, useContext } from 'react';
 
 function parseToken(token) {
@@ -40,9 +41,8 @@ const TokenProvider = ({ children }) => {
   );
 };
 
-const useToken = () => {
-  return useContext(TokenContext);
+TokenProvider.propTypes = {
+  children: PropTypes.element,
 };
 
-export default useToken;
 export { TokenContext, TokenProvider };

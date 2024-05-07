@@ -1,6 +1,5 @@
 import Layout from '../components/Layout/Layout';
 import useNavigate from '../hooks/useNavigate';
-import useToken from '../hooks/useToken';
 import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
 import Post from '../pages/Post/Post';
@@ -27,7 +26,6 @@ const routes = {
 };
 
 function Router() {
-  const { token } = useToken();
   const { page, navigate } = useNavigate();
 
   let CurrentPage = () => <h1>404 Página no encontrada 🥲</h1>;
@@ -36,7 +34,7 @@ function Router() {
 
   if (isEmptyObject(routeParam)) {
     if (routes[window.location.pathname]) {
-      if (routes[window.location.pathname].requiresAuth && !token) {
+      if (routes[window.location.pathname].requiresAuth) {
         window.history.pushState({}, null, '/login');
         navigate('/login');
 
