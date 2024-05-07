@@ -22,6 +22,8 @@
   --card-background: #ffffff;
   --primary-background-color: #eceff8;
   --button-close-form-background-hover: #e7e7e7;
+  --modal-overlay-background: rgba(0, 0, 0, 0.4);
+  --modal-background: #ffffff;
 
   --input-background: #ffffff;
   --input-border-color: #c4c4c4;
@@ -35,6 +37,8 @@
   --card-background: var(--sento-colors-gray-700);
   --primary-background-color: #1b1b1f;
   --button-close-form-background-hover: var(--sento-colors-whiteAlpha-300);
+  --modal-overlay-background: rgba(255, 255, 255, 0.09);
+  --modal-background: #1a202c;
 
   --input-background: var(--sento-colors-whiteAlpha-100);
   --input-border-color: #c4c4c4;

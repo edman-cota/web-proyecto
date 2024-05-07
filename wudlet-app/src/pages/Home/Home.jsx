@@ -19,9 +19,6 @@ const Home = () => {
 
   return (
     <div className={styles.home}>
-      <p>Donde los desarrolladores</p>
-      <p>crecen juntos</p>
-
       <div className={styles.posts}>
         {posts.map((post) => (
           <Post key={post.id} post={post} />

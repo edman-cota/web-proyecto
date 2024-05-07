@@ -8,6 +8,7 @@ const links = {
   get_posts: `${domain}/posts`,
   get_post: `${domain}/posts`,
   delete_post: `${domain}/posts`,
+  create_post: `${domain}/posts`,
 };
 
 export default links;

@@ -1,0 +1,10 @@
+.textarea {
+  border-radius: 4px;
+  padding: 8px 8px;
+  color: var(--main-font-color);
+  background-color: var(--textarea-background);
+
+  &:focus-visible {
+    outline-color: var(--input-active-border-color);
+  }
+}
