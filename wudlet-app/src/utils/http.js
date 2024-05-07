@@ -24,17 +24,16 @@ export const getPost = async (id) => {
 
 export const deletePost = async (id) => {
   try {
-    console.log('Delete: ', id);
-    await fetch(`${links.delete_post}/${id}`, {
-      methods: 'DELETE',
+    const response = await fetch(`${links.get_post}/${id}`, {
+      method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('data: ', data);
-      });
+    });
+
+    console.log('Delete: ', id);
+    console.log('response: ', response);
+    return response.status;
   } catch (error) {
     console.error('error: ', error);
   }

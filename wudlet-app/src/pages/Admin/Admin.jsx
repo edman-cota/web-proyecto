@@ -14,7 +14,8 @@ const Admin = () => {
   };
 
   const handleDeletePost = async (id) => {
-    await deletePost(id);
+    const status = await deletePost(id);
+    if (status === 200) fetchData();
   };
 
   useEffect(() => {
@@ -22,7 +23,7 @@ const Admin = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.admin}>
       <div className={styles.posts}>
         <ul>
           {posts.map((post) => (

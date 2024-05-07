@@ -1,0 +1,23 @@
+.admin {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100%;
+  overflow-y: auto;
+  padding: 16px;
+
+  .posts {
+    ul {
+      li {
+        color: var(--main-font-color);
+        padding: 0px 20px;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+          background-color: var(--card-background);
+        }
+      }
+    }
+  }
+}
