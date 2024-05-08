@@ -36,11 +36,5 @@ services:
     ports:
       - 19830:3000
 
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 9000:8080
-
 volumes:
   appvolume:
