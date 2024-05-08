@@ -10,7 +10,7 @@ import styles from './PostForm.module.scss';
 import ModalFooter from '../Modal/ModalFooter';
 import Button from '../Button/Button';
 import { isEmptyObject } from '../../utils/UtilFunctions';
-import { createPost } from '../../utils/http';
+import { createPost, editPost } from '../../utils/http';
 
 const PostForm = ({ onClose, onRefresh, initialPost }) => {
   const [title, setTitle] = useState(initialPost?.title ?? '');
@@ -23,40 +23,49 @@ const PostForm = ({ onClose, onRefresh, initialPost }) => {
     }
   };
 
+  const handleEditPost = async () => {
+    if (title !== '' && content !== '') {
+      const status = await editPost(initialPost.id, title, content);
+      if (status === 200) onRefresh();
+    }
+  };
+
   return (
     <Fragment>
       <ModalOverlay />
 
       <Modal style={{ maxHeight: '90%', maxWidth: 1000 }}>
-        <ModalHeader onClose={onClose} />
+        <Fragment>
+          <ModalHeader onClose={onClose} />
 
-        <ModalBody>
-          <div className={styles.postForm}>
-            <Textarea
-              value={title}
-              rows={2}
-              placeholder='Título'
-              onChange={(e) => setTitle(e.target.value)}
-            />
+          <ModalBody>
+            <div className={styles.postForm}>
+              <Textarea
+                value={title}
+                rows={2}
+                placeholder='Título'
+                onChange={(e) => setTitle(e.target.value)}
+              />
 
-            <br />
+              <br />
 
-            <Textarea
-              value={content}
-              rows={14}
-              placeholder='Contenido'
-              onChange={(e) => setContent(e.target.value)}
-            />
-          </div>
-        </ModalBody>
+              <Textarea
+                value={content}
+                rows={14}
+                placeholder='Contenido'
+                onChange={(e) => setContent(e.target.value)}
+              />
+            </div>
+          </ModalBody>
 
-        <ModalFooter border={false} style={{ gap: 10 }}>
-          {isEmptyObject(initialPost) ? (
-            <Button label='Crear' variant='primary' onClick={() => handleCreatePost()} />
-          ) : (
-            <Button label='Actualizar' variant='primary' />
-          )}
-        </ModalFooter>
+          <ModalFooter border={false} style={{ gap: 10 }}>
+            {isEmptyObject(initialPost) ? (
+              <Button label='Crear' variant='primary' onClick={() => handleCreatePost()} />
+            ) : (
+              <Button label='Actualizar' variant='primary' onClick={() => handleEditPost()} />
+            )}
+          </ModalFooter>
+        </Fragment>
       </Modal>
     </Fragment>
   );
@@ -66,7 +75,7 @@ PostForm.propTypes = {
   onClose: PropTypes.func,
   onRefresh: PropTypes.func,
   initialPost: PropTypes.shape({
-    id: PropTypes.string,
+    id: PropTypes.number,
     title: PropTypes.string,
     content: PropTypes.string,
   }),

@@ -31,8 +31,6 @@ export const deletePost = async (id) => {
       },
     });
 
-    console.log('Delete: ', id);
-    console.log('response: ', response);
     return response.status;
   } catch (error) {
     console.error('error: ', error);
@@ -44,7 +42,7 @@ export const createPost = async (title, content) => {
     title: title,
     content: content,
     author: 'cota',
-    tags: [],
+    tags: ['javascript'],
   };
 
   try {

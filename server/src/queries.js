@@ -68,7 +68,7 @@ export const createPost = (request, response) => {
       if (error) {
         response.status(500).json({ error: 'Error interno del servidor' });
       }
-      response.status(201).send(`Post added with ID: ${results}`);
+      response.status(200).json(results.rows[0]);
     }
   );
 };
@@ -96,7 +96,7 @@ export const updatePost = (request, response) => {
       if (error) {
         response.status(500).json({ error: 'Error interno del servidor' });
       }
-      response.status(200).send(`Post modified with ID: ${id}`);
+      response.status(200).json(results.rows[0]);
     }
   );
 };

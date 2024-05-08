@@ -28,6 +28,11 @@ const Admin = () => {
     if (status === 200) fetchData();
   };
 
+  const handleRefreshScreen = () => {
+    setShowPostForm(false);
+    fetchData();
+  };
+
   // const handleEditPost = async (id) => {
   //   const status = await editPost(id);
   //   if (status === 200) fetchData();
@@ -43,7 +48,7 @@ const Admin = () => {
         <PostForm
           onClose={() => setShowPostForm(!showPostForm)}
           initialPost={initialPost}
-          onRefresh={fetchData}
+          onRefresh={handleRefreshScreen}
         />
       )}
 
