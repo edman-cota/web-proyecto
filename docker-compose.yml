@@ -7,6 +7,8 @@ services:
     restart: always
     ports:
       - 4000:4000
+    volumes:
+      - appvolume:/app/build/ # build files will be added at this directory !!!
 
   db:
     image: postgres
@@ -20,6 +22,14 @@ services:
       - ./database/db-definition:/database/db-definition/
       - ./database/postgresql.conf:/etc/postgresql.conf
 
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - '80:80'
+    volumes:
+      - appvolume:/usr/share/nginx/html/app # Copy React App's build files to the Nginx directory
+
   server:
     build:
       context: ./server
@@ -31,3 +41,6 @@ services:
     restart: always
     ports:
       - 9000:8080
+
+volumes:
+  appvolume:
