@@ -22,14 +22,6 @@ services:
       - ./database/db-definition:/database/db-definition/
       - ./database/postgresql.conf:/etc/postgresql.conf
 
-  nginx:
-    build:
-      context: ./nginx
-    ports:
-      - '80:80'
-    volumes:
-      - appvolume:/usr/share/nginx/html/app # Copy React App's build files to the Nginx directory
-
   server:
     build:
       context: ./server

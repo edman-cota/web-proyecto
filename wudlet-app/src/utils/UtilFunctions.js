@@ -5,6 +5,7 @@ export const isEmptyObject = (object) => {
 };
 
 export const getRouteParams = (path) => {
+  console.log('patH: ', path);
   const parts = path.split('/');
   return parts.length === 3 ? { id: parts[2] } : {};
 };
